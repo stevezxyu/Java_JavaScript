@@ -1,2 +1,2 @@
 # Java
-Java practice homework.
+Java practice homework
