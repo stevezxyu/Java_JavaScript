@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculating Numerical Values</title>
+</head>
+<body>
+	<h2>The Number Object</h2><hr></br>
+	<script>
+		document.write("Number.MAX_VALUE = " +  Number.MAX_VALUE  + "</br>");
+		document.write("Number.MIN_VALUE = " +  Number.MIN_VALUE  + "</br>");
+		document.write("Number.POSITIVE_INFINITY = " +  Number.POSITIVE_INFINITY  + "</br>");
+		document.write("Number.NEGATIVE_INFINITY = " +  Number.NEGATIVE_INFINITY  + "</br>");
+		document.write("Number.NaN = " +  Number.NaN  + "</br>");
+	</script>
+	
+	</br>
+	
+	<script>
+		document.write("(12.345).toFixed(3) = " + (12.345).toFixed(3) + "</br>");
+		document.write("(12.345).toPrecision(3) = " + (12.345).toPrecision(3) + "</br>");
+		document.write("(12.345).toExponential() = " + (12.345).toExponential() + "</br>");
+		document.write("(12.345).toSource() //IE不支援</br>");
+		document.write("(new Date()).toLocaleString() = " + (new Date()).toLocaleString() + "</br>");
+	</script>
+
+	<h2>The String Object</h2><hr></br>
+	<script>
+		document.write("'ABCDE'.length = " +  "ABCDE".length  + "</br>");
+		document.write("'ABCDE'.charAt(2) = " + "ABCDE".charAt(2) + "</br>");
+		document.write("'ABCDE'.concat('12345') = " +  "ABCDE".concat("12345")  + "</br>");
+		document.write("'Hello World!'.indexOf('World') = " + "Hello World!".indexOf("World")  +   "</br>");
+		document.write("'Hello planet earth, you are a great planet.'.lastIndexOf('planet') = " +  "Hello planet earth, you are a great planet.".lastIndexOf("planet")  + "</br>");
+		document.write("'Visit Microsoft!'.replace('Microsoft', 'W3Schools') = " +  "Visit Microsoft!".replace("Microsoft", "W3Schools")  + "</br>");
+		document.write("'Visit W3Schools!'.search('W3Schools') = " +  "Visit W3Schools!".search("W3Schools")  + "</br>");
+		document.write("'Hello world!'.substr(1, 4) = " +  "Hello world!".substr(1, 4)  + "</br>");
+		document.write("'Hello world!'.substring(1, 4) = " +  "Hello world!".substring(1, 4)  + "</br>");
+		document.write("'Hello world!'.toLowerCase() = " +  "Hello world!".toLowerCase()  + "</br>");
+		document.write("'Hello world!'.toUpperCase() = " +  "Hello world!".toUpperCase()  + "</br>");
+		document.write("'Go to Chapter 10'.anchor('chap10') = &lt;A NAME=&quot;chap10&quot;&gt;Go to Chapter 10&lt;/A&gt;</br>");
+		document.write("'Free Web Building Tutorials!'.link('http://www.w3schools.com') = " +  "&lt;A HREF='http://www.w3schools.com'&gt;Free Web Building Tutorials&lt;/A&gt;"  + "</br>");
+		document.write("'Hello world!'.slice(1,5) = " +  "Hello world!".slice(1,5)  + "</br>");
+		document.write("'How are you doing today?'.split(' ') = " +  "How are you doing today?".split(" ")  + "</br>");
+	</script>
+	
+	<h2>The Date Object</h2><hr></br>
+	
+	<script>
+		document.write("(new Date('1970/1/1 0:0:0')).valueOf() = " + (new Date("1970/1/1 0:0:0")).valueOf() + "</br>");
+		document.write("(new Date(70,0,1)).valueOf() = " + (new Date(70,0,1)).valueOf() + "</br>");
+		document.write("(new Date(0)).valueOf() = " + (new Date(0)).valueOf() + "</br>");
+		document.write("(new Date(0)).getYear() + '/' + (new Date(0)).getMonth() + '/' + (new Date(0)).getDate() = " + (new Date(0)).getYear() + "/" + (new Date(0)).getMonth() + "/" + (new Date(0)).getDate() + "</br>");
+		document.write("(new Date(0)).toString() = " + (new Date(0)).toString() + "</br>");
+		document.write("(new Date('1970/1/1 8:0:0')).valueOf() = " + (new Date("1970/1/1 8:0:0")).valueOf() + "</br>");
+	</script>
+	
+</body>
+</html>

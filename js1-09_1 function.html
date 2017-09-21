@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Function</title>
+	<style>
+		body {font-size:2em;}
+	</style>
+	<script>
+		var s1 = new Array();
+		var s2 = new Array();
+		
+		s1[0] = 23;
+		s1[1] = 51;
+		s1[2] = 83;
+		s1[3] = 27;
+		s1[4] = 58;
+	
+		s2[0] = 55;
+		s2[1] = 39;
+		s2[2] = 42;
+		s2[3] = 61;
+		s2[4] = 92;
+		
+		
+	</script>
+</head>
+<body>
+	<script>
+		//從已定義的數對中, 取出較大的數
+		function Max(num1, num2)  {
+			var max_value;
+
+			if (num1 >= num2) { 
+				max_value = num1;
+			} else {
+				max_value = num2;
+			}
+			
+			return max_value;
+		}
+		
+		for (i=0; i <= 4; i++) {
+			document.write("Max(" + s1[i] + "," + s2[i] + ") = " + Max(s1[i],s2[i]) + "<br>" );
+			}
+
+		
+	</script>
+</body>
+</html>

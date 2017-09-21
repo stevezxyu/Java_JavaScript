@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Input</title>
+	<script>
+		function add() {
+			var result = frm.numA.value + frm.numB.value;
+			alert(result);
+		}
+	</script>
+</head>
+<body>
+
+	<form name="frm">
+		NumA : <input type="text" name="numA" /> <br/>
+		NumB : <input type="text" name="numB" /> <br/>
+		
+		<input type="button" value="相加" onclick="add()" />
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>OnLoad</title>
+	<script>
+		// 請利用 onload 事件, 將表內的 input 輸入框填入初始值
+		// ps : frm.cname.value = "Geego";
+			
+		function init() {
+			frm.cname.value="Geego";
+		}
+		
+	</script>
+</head>
+<body onload="init()">
+
+	<form name="frm">
+		姓名 : <input name="cname" type="text">
+	</form>
+
+</body>
+</html>
