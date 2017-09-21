@@ -1,2 +1,2 @@
-# Java
-Java practice homework
+# Java & JavaScript
+Java and JavaScript practice homework
