@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>輪播</title>
+	<style>
+		body {margin:30px 20px;line-height:2em;}
+		#slide {
+			width:800px;
+			margin:0 auto;
+			position:relative;
+			text-align:center;
+		}
+		
+		#slide-box {
+			display:inline-block;
+			width:500px;
+			height:250px;
+		}
+		
+		#current-slide {
+			cursor:pointer;
+		}
+		
+		#dot {
+			width:800px;
+			margin:0 auto;
+			text-align : center;
+		}
+		
+		.dir-button {
+			width:50px;
+			position:relative;
+			top:-90px;
+			cursor:pointer;
+		}
+		
+		.unactive {
+			cursor:pointer;
+		}
+	</style>
+	<script src="lib/jquery-1.12.0.min.js"></script>
+	<script>
+	
+
+	</script>
+</head>
+<body>
+	<h1>輪播</h1><hr><br/>
+	<div id="slide">
+		<img class="dir-button" src="images/dir-left.jpg">
+		<div id="slide-box">
+			<img id="current-slide" src="images/slide1.jpg">
+		</div>
+		<img class="dir-button" src="images/dir-right.jpg">
+	</div>
+	<div id="dot">
+		<img src='images/dot2.png'><img src='images/dot1.png'><img src='images/dot1.png'>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Create Array</title>
+	<style>
+		.highlight {
+			color : red;
+			font-size : 2em;
+		}
+	</style>
+</head>
+<body>
+	<p id="p1">段落1</p>
+	<p id="p2">段落2</p>
+	<p id="p3">段落3</p>
+	<p id="p4">段落4</p>
+	<p id="p5">段落5</p>
+	<p id="p6">段落6</p>
+	
+	<script>
+		
+		var p1 = document.getElementById("p1");
+		p1.innerText = "新的段落1";
+		
+		var p2 = document.getElementById("p2");
+		p2.innerHTML ="<h1>新的段落2</h1>";
+		
+		var p3 = document.getElementById("p3");
+		document.write(p3.getAttribute("id"));
+		
+		var p4 = document.getElementById("p4");
+		p4.setAttribute("class", "highlight");
+		
+		var p5 = document.getElementById("p5");
+		p5.style.fontSize = "2em";
+		
+		var p6 = document.getElementById("p6");
+		p6.className += " highlight";
+		
+		
+	</script>
+</body>
+</html>

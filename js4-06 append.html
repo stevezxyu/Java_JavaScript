@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>在文件中新增節點</title>
+	<script>
+		function append() {
+			/*
+				1. 利用document.createElement建立蕃茄物件
+					圖檔 : images/tomato1.png
+					寬度 : 120px
+				2. 利用 appendChild 將蕃茄物件附加在 canvas 中
+			*/
+		
+			var img = document.createElement("img");
+			img.src = "images/tomato1.png";
+			img.style.width = "120px";
+			
+			var canvas = document.getElementById("canvas");
+			canvas.appendChild(img);
+		}
+		
+		function remove() {
+			//1. 利用 getElementsByTagName 取出蕃茄陣列
+			//2. 利用 removeChild 移除第0個蕃茄
+		
+			var images = document.getElementsByTagName("img");
+			if (images.length > 0) {
+				var canvas = document.getElementById("canvas");
+				canvas.removeChild(images[0]);
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>在文件中新增節點</h1><hr><br/>
+	<button onclick="append()">增加圖片</button>
+	<button onclick="remove()">刪除圖片</button>
+	
+	<div id="canvas"></div>
+</body>
+</html>

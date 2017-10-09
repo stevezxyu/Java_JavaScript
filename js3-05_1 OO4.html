@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Programming</title>
+	<script>
+
+		/*
+		var tomatoType = { TypeA : 0, TypeB : 1, TypeC : 2 }
+		*/
+		
+		//Enum of Tomato Type
+		var TomatoType = {
+			TypeA : 0,	//牛蕃茄
+			TypeB : 1,	//黃金蕃茄
+			TypeC : 2	//紅櫻蕃茄
+		}
+		
+		function Point(pos_x, pos_y) {
+			this.x = pos_x;
+			this.y = pos_y;
+		}
+		
+		var i = 0; 
+		
+		//模擬番茄繪製到畫布上		
+		function Tomato(tomatoName, tomatoType) {
+			this.name = tomatoName;
+			this.type = tomatoType;
+			this.position = new Point(0, 0);
+
+			this.SetPosition = function(point) {
+				this.position = point;
+			};
+				
+				//將原本 function Tomato (tomatoName, tomatoType) 移除
+		}
+			
+			/****************************
+			/*  Tomato 原型函數
+			 ***************************/
+			Tomato.prototype.Display = function() {    //減少占用記憶體
+				/*
+				var title = document.getElementById("tomato-name");
+				var img = document.getElementById("tomato-image");
+				
+				title.innerText = this.name;
+				
+				img.style.left = this.position.x + "px";
+				img.style.top = this.position.y + "px";
+				
+				if ( this.type == TomatoType.TypeA ) img.src = "images/tomato1.png";
+				if ( this.type == TomatoType.TypeB ) img.src = "images/tomato2.png";
+				if ( this.type == TomatoType.TypeC ) img.src = "images/tomato3.png";
+				*/
+				
+				i++;
+				myApp.canvas.innerText = i;
+		}
+		
+		//準備canvas
+		var myApp = {
+			timer:null,
+			interval:3000,
+			canvas:null,
+			Init : function() {
+				this.canvas = document.getElementById("canvas");
+			},
+			Start : function() {
+				this.timer = setInterval(this.Draw, this.interval);
+			},
+			Pause : function() {
+				clearInterval(this.timer);
+			},
+			Draw : function(){
+				//每次新增一個番茄
+				var tomato = new Tomato("name", TomatoType.TypeA);
+				tomato.Display();
+			}
+		};
+	
+	
+	</script>
+</head>
+<body onload="myApp.Init()">
+	<button onclick="myApp.Start()">啟動</button>
+	<button onclick="myApp.Pause()">暫停</button>
+	<br/></br/>
+	<div id="canvas" style="width:700px;height:500px;border:1px solid black;position:relative;overflow:hidden;"></div>	
+</body>
+</html>

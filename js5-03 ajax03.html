@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax 03 - 回傳XML</title>
+	<script>
+		/*
+			目標一 : 了解 XML文件
+			目標二 : 解析 XML 文件
+				var xml = request.responseXML;
+				var books = xml.getElementsByTagName("book");
+				var bookName = books[2].childNodes[0].nodeValue
+		*/
+	
+		function ajax() {
+			var request = new XMLHttpRequest();
+
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					var xml = request.responseXML;
+					var books = xml.getElementsByTagName("book");
+					var result = "";
+					
+					//解析 XML
+					for (i=0; i<books.length; i++){
+						result += books[i].childNodes[0].nodeValue + "<br/>";
+					}
+					
+					document.getElementById("canvas").innerHTML = result;
+				}
+			};
+			request.open("GET", "js5-03 ajax03.php", true);
+			request.send();		
+		}
+		
+	
+	</script>
+</head>
+<body>
+	<h1>Ajax 03 - 回傳XML</h1><hr><br/>
+
+	<button onclick="ajax()">取得XML</button><br/><br/>
+	<div id="canvas"></div>
+	
+</body>
+</html>
+

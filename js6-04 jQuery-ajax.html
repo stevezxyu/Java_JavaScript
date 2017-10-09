@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery ajax</title>
+	<script src="lib/jquery-1.12.0.min.js"></script>
+	<script>
+		function ajax(cid_value) {
+			$.ajax({
+				url : "js6-04 jQuery-ajax.php",
+				type: "post",	//get or post
+				dataType: "json",	//text, html, xml, json
+				data: {cid : cid_value},
+				success : function(result) {
+					var buffer = "";
+					for (i=0; i < result.length; i++) {
+						 buffer += result[i].Title + "<br/>";
+					}
+					$("#canvas").html(buffer);
+				},
+				error : function(err) {
+					alert(err.statusText);
+				}
+			});
+		}
+		
+	</script>
+</head>
+<body>
+	<h1>jQuery ajax</h1><hr><br/>
+
+	<form name="frm">
+		請輸入 : <input name="cid" placeholder="請輸入 1~5" />( 1=資訊技術, 2=兒童圖書, 3=人文藝術, 4=線上遊戲, 5=旅遊優惠 )<br/>
+	</form><br/><br/><br/>
+
+	<button onclick="ajax(frm.cid.value)">取得JSON</button><br/><br/>
+	<div id="canvas"></div>
+	
+</body>
+</html>

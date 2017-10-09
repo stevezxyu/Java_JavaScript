@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Programming</title>
+	<style>
+		body {margin:0;padding:0;}
+		h1 {text-align:center}
+		.center {margin:0 auto;text-align:center;}
+		.width200 { width:200px; }
+		.width300 { width:300px; }
+		.width400 { width:400px; }
+		.width500 { width:500px; }
+		.width600 { width:600px; }
+		.width700 { width:700px; }
+		.width800 { width:800px; }
+		.height50 { height:50px;}
+		.height75 { height:75px;}
+		.height100 { height:100px;}
+		.height150 { height:150px;}
+		.height200 { height:200px;}
+		.height300 { height:300px;}
+		.height400 { height:400px;}
+		.height500 { height:500px;}
+		.height600 { height:600px;}
+		.solidborder { border:1px solid black; }
+		.bg-yellow { background:yellow; color:#444; }
+		.bg-green { background:#2c2; color:white; }
+	</style>
+
+	<script>
+		//分別定義 寬, 高, 顏色 平行陣列
+		arrWidth = new Array();
+		arrWidth[0] = 200;
+		arrWidth[1] = 250;
+		arrWidth[2] = 300;
+		
+		arrHeight = new Array();
+		arrHeight[0] = 100;
+		arrHeight[1] = 150;
+		arrHeight[2] = 200;
+		
+		arrColor = new Array();
+		arrColor[0] = "red";
+		arrColor[1] = "green";
+		arrColor[2] = "blue";
+	
+		function MyFun() {
+			var canvas = document.getElementById("canvas");
+			var html = "";
+		
+			//計算 html 字串
+			
+			
+			canvas.innerHTML = html;
+		}
+		
+	</script>
+</head>
+<body onload="Init()">
+
+	<form name="form1" class="width300 height500 solidborder" style="float:left;margin:10px;padding:10px;">
+
+		<input type="button" value="送出" onclick="MyFun()" />
+	</form>
+
+	<div id="canvas" class="width600 height500 solidborder" style="float:left;;margin:10px;padding:10px;overflow:auto;">
+	</div>
+	
+	
+</body>
+</html>

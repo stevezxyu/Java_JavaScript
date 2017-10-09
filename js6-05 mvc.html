@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MVC</title>
+	<style>
+		body {margin:30px 20px;line-height:2em;}
+		select { width:60px }
+		img { width : 100px}
+		#desc {color:red}
+	</style>
+	<script src="lib/jquery-1.12.0.min.js"></script>
+	<script>
+		var model = {
+			xCount : 1,
+			yCount : 1,
+			imgType : 1		//1:剪刀 2:石頭 3:布
+		}
+		
+		var view = {
+			refresh : function() {
+				this.refreshDesc();
+				this.refreshCanvas();
+
+			},
+			refreshDesc : function() {
+				var str = "一共有 : " + model.xCount + " × " + model.yCount + " = " + eval(model.xCount*model.yCount) + " 個 " ;
+				
+				switch (model.imgType) {
+					case 1 :
+						str += "剪刀";
+						break;
+					case 2 :
+						str += "石頭";
+						break;
+					case 3 :
+						str += "布";
+						break;
+				}
+				
+				$("#desc").text(str);
+			
+			},
+			refreshCanvas : function() {
+				var img = "";
+				switch (model.imgType) {
+					case 1 :
+						img = "images/scissors-2.jpg";
+						break;
+					case 2 :
+						img = "images/rock-2.jpg";
+						break;
+					case 3 :
+						img = "images/paper-2.jpg";
+						break;
+				}
+				
+				var html = "";
+				html += "<table>";
+				
+				for (i=1; i <= model.yCount; i++) {
+					html += "<tr>";
+					
+					for (j=1; j <= model.xCount; j++) {
+						html += "<td>";
+						html += "<img src='" + img + "'>";
+						html += "</td>";
+					}
+					
+					html += "</tr>";
+				}
+				
+				html += "</table>";
+				$("#canvas").html(html);			
+			
+			}
+		}
+		
+		var controller = {
+			ChangeXCount : function(cnt) {
+				if ( !isNaN(cnt) ) {
+					model.xCount = cnt;
+					view.refresh();
+				}
+			},
+			ChangeYCount : function(cnt) {
+				if ( !isNaN(cnt) ) {
+					model.yCount = cnt;
+					view.refresh();
+				}
+			},
+			ChangeImgType : function(type) {
+				if ( !isNaN(type) ) {
+					model.imgType = type;
+					view.refresh();
+				}
+			}
+		}
+		
+		$(function() {
+			//Initial(程式初始化)
+			$("#xCount").change(function() {
+				controller.ChangeXCount(this.value);
+			});
+			
+			$("#yCount").change(function() {
+				controller.ChangeYCount(this.value);
+			});
+			
+			$("#imgType").change(function() {
+				controller.ChangeImgType( parseInt(this.value));
+			});
+			
+			view.refresh();
+		});
+		
+		
+
+	
+	</script>
+</head>
+<body>
+	<h1>MVC</h1><hr><br/>
+	
+	X Count : 
+		<select id="xCount">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select> 
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	Y Count : 
+		<select id="yCount">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select> 
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	
+	
+	Image : 
+		<select id="imgType">
+			<option value="1">剪刀</option>
+			<option value="2">石頭</option>
+			<option value="3">布</option>
+		</select>
+		
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span id="desc"></span>
+		
+		<br/>
+	顯示 : <span id="canvas"></span>
+</body>
+</html>

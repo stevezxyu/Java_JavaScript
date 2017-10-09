@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>使用className屬性讓網站呈現動態效果</title>
+	<style>
+		.tabs {
+			float:left;
+			width:100px;
+			height:30px;
+			background:#ccc;
+			text-align:center;
+			line-height:30px;
+			cursor:pointer;
+
+			border:1px solid black;
+		}
+		
+		.selected {
+			border-bottom : 1px solid #ccc;
+		}
+		
+		#content {
+			clear:left;
+			width:500px;
+			height:300px;
+			background:#ccc;
+			border-left: 1px solid black;
+			border-bottom: 1px solid black;
+			border-right: 1px solid black;
+		}
+	</style>
+	
+	<script>
+		function tab_click(id) {
+			reset_tab_border();	//出現 reset border
+			
+			var tab = document.getElementById(id);
+			//增加類別名稱 "selected"
+			tab.className += " selected";
+		}
+		
+		function reset_tab_border() {
+			var tabArr = document.getElementsByClassName("tabs");
+			for (i=0; i < tabArr.length; i++) {
+				//清除 selected 類別名稱 
+				tabArr[i].className = tabArr[i].className.replace(" selected", "");	//selected變成空字串,出現頁籤的底線
+			}
+		}
+		
+		
+	</script>
+</head>
+<body>
+	<h1>使用className屬性讓網站呈現動態效果</h1><hr><br/>
+	<div id="tab1" class="tabs  selected" onclick="tab_click('tab1')">One</div>
+	<div id="tab2" class="tabs" onclick="tab_click('tab2')">Two</div>
+	<div id="tab3" class="tabs" onclick="tab_click('tab3')">Three</div>
+	<div id="content"></div>
+</body>
+</html>

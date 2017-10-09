@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>在文件中 新增/刪除 節點</title>
+	<style>
+		#mask {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			background: #000;
+			opacity: 0.5;
+			z-index: 999;
+		}	
+		
+		#dialog {
+			position: fixed;
+			width : 650px;
+			height: 450px;
+			top:50px;
+			left:200px;
+			z-index: 1000;
+			background-color: #ddd;
+			text-align:right;
+			padding: 0px;
+		}
+		
+		.dialog_title {
+			background : #ccc;
+			text-align:right;
+		}
+		
+		.dialog_detail {
+			height:450px;
+			background-color:white;
+			overflow:auto;
+			padding:5px;
+		}
+
+		
+	
+	</style>
+	<script>
+		function dialog() {
+			var body = document.getElementsByTagName("body")[0];
+			
+			//底層 mask
+			var mask = document.createElement("div");
+			mask.setAttribute("id", "mask");
+			//將 mask 附加到 body 
+			body.appendChild(mask);
+			
+			//上層 dialog
+			var dialog = document.createElement("div");
+			dialog.setAttribute("id", "dialog");
+			dialog.style.left = parseInt((window.innerWidth - 650)/2) + "px";
+			
+			var html = "<div class=\"dialog_title\"><a href=\"#\" onclick=\"close_dialog()\"><img id=\"btn-close\" src=\"images/close_pop.png\" /></a></div>";
+			html += "<div class=\"dialog-detail\"></div>";
+			dialog.innerHTML = html;
+			//alert(html)
+			//將 dialog 附加到 body
+			body.appendChild(dialog);
+		}
+		
+		function close_dialog() {
+			var body = document.getElementsByTagName("body")[0];
+			var dialog = document.getElementById("dialog");
+			var mask = document.getElementById("mask");
+			//移除 dialog
+			body.removeChild(dialog);
+			//移除 mask
+			body.removeChild(mask);
+		}
+	</script>
+</head>
+<body>
+	<h1>在文件中 新增/刪除 節點</h1><hr><br/>
+	<button onclick="dialog()">點我</button>
+	
+	<!--
+	<div id="mask"></div>
+	<div id="dialog">
+		<div class=\"dialog_title\"><a href=\"#\" onclick=\"close_dialog()\"><img id=\"btn-close\" src=\"images/close_pop.png\" /></a></div>
+		<div class=\"dialog-detail\"></div>
+	</div>
+	-->
+</body>
+</html>

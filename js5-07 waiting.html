@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax 01 - Ajax 起步</title>
+	<script>
+		function ajax() {
+			var canvas = document.getElementById("canvas");
+			var request = new XMLHttpRequest();
+
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					var str = request.responseText;
+					
+					//2. 顯示回傳字串, 並刪除 waiting 的圖案
+
+					canvas.innerText = str;
+				}
+			};
+			request.open("GET", "js5-07 waiting.php", true);
+			request.send();	
+			
+			//1. 加入 waiting 的圖案
+
+			canvas.innerHTML = "<img src='images/indicator.gif'>";
+		}
+	
+	</script>
+</head>
+<body>
+	<h1>Ajax 07 - Waiting</h1><hr><br/>
+	<button onclick="ajax()">啟動 Ajax</button>
+	<h1 id="canvas"></h1>	
+</body>
+</html>
+

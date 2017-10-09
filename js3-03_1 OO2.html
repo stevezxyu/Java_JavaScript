@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Programming</title>
+	<script>
+
+		/*
+		var TomatoType = { TypeA : 0, TypeB : 1, TypeC : 2 }
+		*/
+		
+		//Enum of Tomato Type
+		var TomatoType = {
+			TypeA : 0,	//牛蕃茄
+			TypeB : 1,	//黃金蕃茄
+			TypeC : 2	//紅櫻蕃茄
+		}
+	
+		function draw() {
+			//複製 OO1 - draw() 的函數內容, 然後再修改
+			var title = document.getElementById("tomato-name");
+			var img = document.getElementById("tomato-image");
+			
+			//6. 在 title 上顯示 tomato.name
+			//7. 在 img 上顯示 tomato 的 圖片
+			
+			title.innerText = this.name;
+			
+			img.style.left = this.pos_x + "px";
+			img.style.top = this.pos_y + "px";
+			
+			if ( this.type == 0 ) img.src = "images/tomato1.png";
+			if ( this.type == 1 ) img.src = "images/tomato2.png";
+			if ( this.type == 2 ) img.src = "images/tomato3.png";
+		}
+
+		function btn1_click() {
+			var tomato = {		//set variable
+				name:"",
+				type:TomatoType.TypeA,
+				pos_x:0,
+				pos_y:0,
+				setPosition: function(x,y) {
+					this.pos_x = x;
+					this.pos_y = y;
+				},
+				display: draw
+			}
+			
+			//Execution
+			tomato.name = "Tomato 1";
+			tomato.type = TomatoType.TypeA;
+			tomato.setPosition(100,100);
+			tomato.display();		
+		}
+	
+		function btn2_click() {
+			var tomato = {
+				name:"",
+				type:TomatoType.TypeB,
+				pos_x:0,
+				pos_y:0,
+				setPosition: function(x,y) {
+					this.pos_x = x;
+					this.pos_y = y;
+				},
+				display: draw
+			}
+			
+			tomato.name = "Tomato 2";
+			tomato.type = TomatoType.TypeB;
+			tomato.setPosition(100,100);
+			tomato.display();
+		}
+
+		function btn3_click() {
+			var tomato = {
+				name:"",
+				type:TomatoType.TypeC,
+				pos_x:0,
+				pos_y:0,
+				setPosition: function(x,y) {
+					this.pos_x = x;
+					this.pos_y = y;
+				},
+				display: draw
+			}
+			
+			tomato.name = "Tomato 3";
+			tomato.type = TomatoType.TypeC;
+			tomato.setPosition(100,100);
+			tomato.display();
+		}
+	
+	</script>
+</head>
+<body>
+	<button onclick="btn1_click()">Tomato 1</button> 
+	<button onclick="btn2_click()">Tomato 2</button> 
+	<button onclick="btn3_click()">Tomato 3</button>
+	
+	<h1 id="tomato-name"></h1>
+	<img id="tomato-image" style="height:500px;position:absolute;">
+
+</body>
+</html>

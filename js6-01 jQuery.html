@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery</title>
+	<style>
+		h1, h2, p, form {
+			margin-left : 30px;
+		}
+		
+		bocy {margin-left : 20px; }
+	
+		p > img {
+			width : 30px;
+			margin-right : 15px;
+		}
+		
+		p > span {
+			position:relative;
+			top : -12px;
+		}
+		
+		.important {
+			color : red;
+			font-weight:bold;
+		}
+	</style>
+
+	<script src ="lib/jquery-1.12.0.min.js"></script>
+
+	<script>
+		$(function(){
+
+			//目標一 : 啟動 jQuery
+
+			//alert("hi, jQuery");
+
+			//目標二 : 變更顏色
+
+			//$("h1").css("color", "blue");
+
+			//目標三 : 變更背景色
+
+			$("h1").css("color", "blue").css("background", "yellow")
+			
+			//目標四 : jQuery物件
+			
+			//alert($("p").length);		//擷取5個p顯示
+
+			//目標五 : jQuery物件轉DOM物件, DOM物件轉jQuery物件
+
+			$("p")[0].style.color = "blue"
+
+			$ ( document.getElementById("p2") ).css("color", "red");
+			
+			//目標六 : 變更屬性, 將 images/li-image.jpg 改為 images/li-image2.jpg
+
+			$("p>img").attr("src", "images/li-image2.jpg");
+			
+			//目標七 : 加入類別
+
+			$("#p3").addClass("important");
+			
+			//目標八 : 變更內容 : 將 p>span 的內容改為 You are hacked! , 將 #email 的內容改為 geego@gmail.com
+
+			// $("p>span").text("You are hacked!");
+			$("#email").val("geego@gmail.com");
+			
+			//目標九 : 虛擬類別選擇器 : 
+			//		1. 利用 :gt 將 p>span 第2個以後的內容改為 You are hacked!
+			//		2. 利用 eq(index) 將第2個 p 的內容改為 You are hacked!
+			//		3. 利用 :gt + filter 將第 2,3,4 的 p 的內容改為 You are hacked!
+			
+			// $("p>span:gt(0)").text("You are hacked!");	//除了index[0]之後都有
+			// $("p>span").eq(1).text("You are hacked!");	//只有index[1]有
+			
+			$("p>span:gt(0)").filter(":lt(3)").text("You are hacked!"); //index[0]之後且過濾到index[3]
+			
+			//目標十 : each : 將 p>img 的圖檔改為 n0.png ~ n4.png
+			
+			$("p>img").each(function(index){
+				var path = "images/n" + (index+1) + ".png";
+				// this.setAttribute("src", path)
+				
+				$(this).attr("src", path);
+			})
+
+			//目標十一 : append 
+			
+			$("#list").append('<p id="p5"><img src="images/li-image.jpg"><span>jQuery支持AJAX。</span></p>')
+
+			//目標十二 : click
+
+			$("button").click(function(){
+				// alert(0); 
+				// alert( $(this).attr("id") ); //jQuery
+				alert( this.getAttribute("id") ); //JavaScript
+			})
+
+		});
+
+
+	</script>
+</head>
+<body>
+	<h1>jQuery 我最行</h1><hr><br/>
+	
+	<h2>使用 jQuery, 您可以享受以下優點 ( <button id="btn1">樣式1</button> <button id="btn2">樣式2</button> <button id="btn3">樣式3</button> )</h2>
+	<div id="list">
+	<p id="p1"><img src="images/li-image.jpg"><span>jQuery消除了JavaScript跨平臺相容問題。</span></p>
+	<p id="p2"><img src="images/li-image.jpg"><span>相比其他JavaScript和JavaScript函式庫，jQuery更容易使用。。</span></p>
+	<p id="p3"><img src="images/li-image.jpg"><span>jQuery有一個龐大的函式庫。</span></p>
+	<p id="p4"><img src="images/li-image.jpg"><span>jQuery有良好的文件和手冊。</span></p>
+	<p id="p5"><img src="images/li-image.jpg"><span>jQuery支持AJAX。</span></p>
+	</div>
+	
+	<br/><br/>
+	
+	<h2>訂閱電子報</h2>
+	<form name="frm">
+		<input type="text" id="email" name="email" placeholder="請輸入您的Email" /> <input type="submit" value="訂閱" />
+	</form>
+	
+</body>
+</html>

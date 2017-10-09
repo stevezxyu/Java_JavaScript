@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Programming</title>
+	<script>
+
+		/*
+		var tomatoType = { TypeA : 0, TypeB : 1, TypeC : 2 }
+		*/
+		
+		//Enum of Tomato Type
+		var TomatoType = {
+			TypeA : 0,	//牛蕃茄
+			TypeB : 1,	//黃金蕃茄
+			TypeC : 2	//紅櫻蕃茄
+		}
+		
+		function Point(pos_x, pos_y) {
+			this.x = pos_x;
+			this.y = pos_y;
+		}
+	
+		function Tomato(tomatoName, tomatoType) {
+			this.name = tomatoName;
+			this.type = tomatoType;
+			this.position = new Point(100, 100);
+
+			this.SetPosition = function(point) {
+				//this.position.x = point.x;
+				//this.position.y = point.y;
+				
+				this.position = point;
+			};
+			
+			this.Display = function() {
+				//複製 OO2 - draw() 的函數內容, 然後再修改
+				var title = document.getElementById("tomato-name");
+				var img = document.getElementById("tomato-image");
+				
+				//6. 在 title 上顯示 tomato.name
+				//7. 在 img 上顯示 tomato 的 圖片
+				
+				title.innerText = this.name;
+				
+				img.style.left = this.position.x + "px";
+				img.style.top = this.position.y + "px";
+				
+				if ( this.type == 0 ) img.src = "images/tomato1.png";
+				if ( this.type == 1 ) img.src = "images/tomato2.png";
+				if ( this.type == 2 ) img.src = "images/tomato3.png";
+			}
+		}
+
+		function btn1_click() {
+			var tomato = new Tomato("Tomato 1", TomatoType.TypeA);
+			tomato.SetPosition(new Point(100, 100));
+			tomato.Display();
+		}
+	
+		function btn2_click() {
+			var tomato = new Tomato("Tomato 2", TomatoType.TypeB);
+			tomato.SetPosition(new Point(100, 100));
+			tomato.Display();
+		}
+
+		function btn3_click() {
+			var tomato = new Tomato("Tomato 3", TomatoType.TypeC);
+			tomato.SetPosition(new Point(100, 100));
+			tomato.Display();
+		}
+	
+	</script>
+</head>
+<body>
+	<button onclick="btn1_click()">Tomato 1</button> 
+	<button onclick="btn2_click()">Tomato 2</button> 
+	<button onclick="btn3_click()">Tomato 3</button>
+	
+	<h1 id="tomato-name"></h1>
+	<img id="tomato-image" style="height:500px;position:absolute;">
+
+</body>
+</html>

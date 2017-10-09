@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cookie</title>
+	<script src="js3-09 cookie.js"></script>
+	
+	<script>
+		function SaveCookie() {
+			today = new Date();
+			nextDay = new Date();
+			today = today.getTime();
+			nextDay.setTime(today + 1 * 24 * 60 * 60 * 1000);
+			
+			setCookie("name", document.getElementById("name").value, nextDay);
+			setCookie("email", document.getElementById("email").value, nextDay);
+		}
+		
+		function LoadCookie() {
+			var txtName = document.getElementById("name");
+			txtName.value = getCookie("name");
+			
+			var txtEmail = document.getElementById("email");
+			txtEmail.value = getCookie("email");
+		}
+		
+		function RemoveCookie() {
+			killCookie("name");
+			killCookie("email");
+		}
+	</script>
+</head>
+<body>
+	<form name="frm">
+		姓名 : <input type="text" id="name" name="name"><br/>
+		電郵 : <input type="text" id="email" name="email"><br/>
+		<input type="button" value="儲存Cookie" onclick="SaveCookie()" /> 
+		<input type="button" value="取出Cookie" onclick="LoadCookie()" /> 
+		<input type="button" value="刪除Cookie" onclick="RemoveCookie()" /><br/>
+		<input type="reset" value="清空" />
+	</form>
+</body>
+</html>

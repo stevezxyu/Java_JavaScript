@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Programming</title>
+	<script>
+
+		/*******************
+		/* Tomato Type
+		/*    0 : Type A
+		/*    1 : Type B
+		/*    2 : Type C
+		 *******************/
+	
+		function draw() {
+			var title = document.getElementById("tomato-name");
+			var img = document.getElementById("tomato-image");
+			
+			//6. 在 title 上顯示 tomato.name
+			//7. 在 img 上顯示 tomato 的 圖片
+			
+			title.innerText = this.name;	//name回傳到innerText
+			if ( this.type == 0 ) img.src = "images/tomato1.png";
+			if ( this.type == 1 ) img.src = "images/tomato2.png";
+			if ( this.type == 2 ) img.src = "images/tomato3.png";
+		}
+
+		function btn1_click() {
+			//1. 建立 tomato 物件
+			//2. 指定 tomato.name 屬性
+			//3. 指定 tomato.type 屬性
+			//4. 指定 tomato.display 方法
+			//5. 執行 tomato.display 方法
+			
+			var tomato = new Object();
+			tomato.name = "Tomato 1";
+			tomato.type = 0;
+			tomato.display = draw;	//call function
+			
+			tomato.display();
+
+		}
+	
+		function btn2_click() {
+			//8. 模擬 btn_click() 建立第2個 tomato
+			
+			var tomato = new Object();
+			tomato.name = "Tomato 2";
+			tomato.type = 1;
+			tomato.display = draw;
+			
+			tomato.display();
+			
+		}
+
+		function btn3_click() {
+			//9. 模擬 btn_click() 建立第3個 tomato
+			
+			var tomato = new Object();
+			tomato.name = "Tomato 3";
+			tomato.type = 2;
+			tomato.display = draw;
+			
+			tomato.display();
+			
+		}
+	
+	</script>
+</head>
+<body>
+	<button onclick="btn1_click()">Tomato 1</button> 
+	<button onclick="btn2_click()">Tomato 2</button> 
+	<button onclick="btn3_click()">Tomato 3</button>
+	
+	<h1 id="tomato-name"></h1>
+	<img id="tomato-image" style="height:500px;">
+
+</body>
+</html>

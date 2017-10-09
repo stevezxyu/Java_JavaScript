@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax 06 - 錯誤處理程序</title>
+	<style>
+		h3 { color : navy; }
+	</style>	
+	<script>
+		function ajax() {
+			var request;
+			
+			if (window.ActiveXObject) {
+				//IE6
+				request = new ActiveXObject("Microsoft.XMLHttp");
+			} else if (window.XMLHttpRequest) {
+				//Mozilla, Opera, Safari ...
+				request = new XMLHttpRequest();
+			}
+
+			request.onreadystatechange = function() {
+				var canvas = document.getElementById("canvas");
+			
+				if (request.readyState == 0) {
+					canvas.innerHTML += "readyState = 0 ; --- not jet initialized<br/>";
+				}
+			
+				if (request.readyState == 1) {
+					canvas.innerHTML += "readyState = 1 ; --- initialized but request not send<br/>";
+				}
+
+				if (request.readyState == 2) {
+					canvas.innerHTML += "readyState = 2 ; --- send all the headers and received response status<br/>";
+				}
+
+				if (request.readyState == 3) {
+					canvas.innerHTML += "readyState = 3 ; --- downloading response now<br/>";
+				}
+				
+				if (request.readyState == 4 ) {
+					canvas.innerHTML += "readyState = 4 ; --- ajax finished<br/>";
+				
+					if (request.status == 200) {
+						var json = request.responseText;
+						canvas.innerHTML = json;
+					} else {
+						canvas.innerHTML += "status = " + request.status + "<br/>";
+						canvas.innerHTML += "statusText = " + request.statusText + "<br/>";
+					}
+				}
+			};
+			request.open("GET", "js5-06 ajax06.php", true);
+			request.send();		
+		}
+	</script>
+</head>
+<body>
+	<h1>Ajax 06 - 錯誤處理程序</h1><hr><br/>
+	
+	<button onclick="window.location='js5-06 ajax06.php'">開啟js-6-ajax06.php</button> <button onclick="ajax()">取得JSON</button><br/><br/>
+	<div id="canvas"></div>
+</body>
+</html>
+

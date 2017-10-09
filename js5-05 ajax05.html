@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax 05 - 使用POST, 並讀取資料庫</title>
+	<style>
+		h3 { color : navy; }
+	</style>	
+	<script>
+		/*
+			目標 : 使用 POST 傳遞參數
+			
+				request.open("POST", "js5-05 ajax05.php", true);
+				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				request.send("type=" + type);		
+		
+		*/
+		
+		function ajax() {
+
+			var request;
+			
+			if (window.ActiveXObject) {
+				//IE6
+				request = new ActiveXObject("Microsoft.XMLHttp");
+			} else if (window.XMLHttpRequest) {
+				//Mozilla, Opera, Safari ...
+				request = new XMLHttpRequest();
+			}
+
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					var json = request.responseText;
+					document.getElementById("canvas").innerHTML = json;
+				}
+			};
+			request.open("POST", "js5-05 ajax05.php", true);	//POST不會出現在網址上, 需增加下一行setRequestHeader
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			
+			var str = document.getElementById("type");
+			var val = str.value;	//取出value回傳給屬性val
+			
+			request.send("type=" + val);		
+		}
+		
+	
+	</script>
+</head>
+<body>
+	<h1>Ajax 05 - 使用POST, 並讀取資料庫</h1><hr><br/>
+	
+	<h3>使用表單觀察POST的行為</h3>
+	<form name="frm" method="post" action="js5-05 ajax05.php">
+		請輸入 : <input name="type" id="type" placeholder="請輸入 1~5" />( 1=資訊技術, 2=兒童圖書, 3=人文藝術, 4=線上遊戲, 5=旅遊優惠 )<br/>
+		<input type="submit" value="送出" />
+	</form><br/><br/><br/>
+	
+	
+	<h3>Ajax POST</h3>
+	<button onclick="ajax()">取得JSON</button><br/><br/>
+	<div id="canvas"></div>
+	
+</body>
+</html>
+

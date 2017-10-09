@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax 02 - 使用GET分別純文字及HTML</title>
+	<style>
+		h3 { color : navy; }
+	</style>
+	<script>
+		//目標一 : 了解 GET 傳遞參數的特性
+		//目標二 : 使用GET傳遞參數
+	
+		function ajax(str) {
+			var request = new XMLHttpRequest();
+
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					document.getElementById("canvas").innerHTML = request.responseText;
+				}
+			};
+			request.open("GET", "js5-02 ajax02.php?type=" + str , true);
+			request.send();		
+		}
+	
+	</script>
+</head>
+<body>
+	<h1>Ajax 02 - 使用GET分別純文字及HTML</h1><hr><br/>
+
+	<h3>使用表單觀察GET的行為</h3>
+	<form method="get" action="js5-02 ajax02.php">
+		純文字或HTML : <input name="type" placeholder="請輸入 text 或 html" /><br/>
+		<input type="submit" value="送出" />
+	</form>
+	
+	<br/><br/>
+	
+	<h3>Ajax GET</h3>
+	<button onclick="ajax('text')">純文字</button> <button onclick="ajax('html')">HTML</button>
+	<h1 id="canvas"></h1>	
+</body>
+</html>
+

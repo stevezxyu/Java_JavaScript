@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Menu</title>
+	
+	<style>
+		ul { list-style-type:none; border:1px dashed red;width:100px;border-bottom:none;}
+		li { margin:0 0 0 -40px;}
+		a { text-decoration:none; color:purple; background:pink;display:inline-block;width:100px; padding:5px 20px;border-bottom:1px dashed red;}
+		a:hover { background:yellow; color:navy; }
+		a:active { color: red; }
+		
+		#menu {
+			display:none;
+		}
+	</style>
+	
+	<script>
+		function menu_click() {
+			var menu = document.getElementById("menu");
+			
+			//menu.style.display = block ?   ===> none
+			//menu.style.display <> block ? ===> block
+			//使用 DOM 的 style 屬性讓網站呈現動態效果
+			var display = menu.style.display
+			if (display == "block") menu.style.display = "none";
+			else menu.style.display = "block";
+		}
+		
+	</script>
+	
+</head>
+<body>
+	<div>
+		<img src="images/menu.png" alt="menu" onclick="menu_click();" >
+		
+		<ul id="menu">
+			<li><a href="#">小棧緣起</a></li>
+			<li><a href="#">易經概論</a></li>
+			<li><a href="#">最新消息</a></li>
+			<li><a href="#">開課資訊</a></li>
+			<li><a href="#">活動剪影</a></li>
+			<li><a href="#">聯絡我們</a></li>
+		</ul>
+	
+	</div>
+	
+
+
+	
+</body>
+</html>

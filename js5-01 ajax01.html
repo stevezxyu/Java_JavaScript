@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax 01 - Ajax 起步</title>
+	<script>
+		function ajax() {
+			//目標一 : 建立 XMLHttpRequest 物件
+			//目標二 : 設定傳送資訊
+			//目標三 : 建立回呼函數(callback function - onreadystatechange)
+			//目標四 : 顯示主機回傳的資訊
+			
+			var request = new XMLHttpRequest();
+			request.open("GET", "js5-01 ajax01.php", true);
+			request.send();
+			
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					//處理程序 alert(request)
+					// alert(1);
+					// alert(request.statusText);	//處理程序為顯示狀態OK
+					alert(request.responseText);	//顯示後端的資料再回傳
+				}
+			};
+			
+			// alert(2);
+		}
+	
+	</script>
+</head>
+<body>
+	<h1>Ajax 01 - Ajax 起步</h1><hr><br/>
+	<button onclick="ajax()">啟動 Ajax</button>
+	<h1 id="canvas"></h1>	
+</body>
+</html>
+

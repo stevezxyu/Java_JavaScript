@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax 08 - 元件連動</title>
+	<style>
+		body {
+			margin:15px;
+			padding:0;
+		}
+
+		table {
+			border-collapse : collapse;
+			width:100%;
+		}
+
+		th, td {
+			border : 1px solid black;
+			padding : 8px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Ajax 08 - 元件連動</h1><hr><br/>
+	
+	<div>
+		<span>商品查詢 : </span>
+		大類 : 
+		<select id="category1">	<!-- 使用onchange事件,變更小類清單 -->
+			<option value="0">[請選擇]</option>
+			<option value="1">圖書</option>
+			<option value="2">休閒</option>
+		</select> 
+		小類 :
+		<select id="category2"> <!-- 使用onchange事件,列示圖書清單 -->
+			<option value="0">[請選擇]</option>
+		</select> 
+		
+	</div>
+	<br/>
+	<div id="canvas">
+		
+	</div>
+	
+</body>
+</html>
+

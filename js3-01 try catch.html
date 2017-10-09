@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Programming</title>
+	<script>
+		function div() {
+			try {
+				var numA = frm.numA.value;
+				var numB = frm.numB.value;
+				var result = 0;
+			
+				result = parseInt(numA) / parseInt(numB);	//將 numA 改為 numa, 模擬 error
+				alert("Number A / Number B = " + result);
+			} catch (err) {
+				alert("程式錯誤 : " + err.message);
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<form name="frm">
+		Number A : <input type="text" name="numA" /></br>
+		Number B : <input type="text" name="numB" /></br>
+		<input type="button" value="Number A / Number B" onclick="div()" />
+	</form>
+</body>
+</html>
